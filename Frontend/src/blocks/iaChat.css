@@ -1,0 +1,267 @@
+/* Modificador Geral para Fonte Gotham */
+* {
+  box-sizing: border-box;
+}
+
+/* Bloco Principal */
+.ia-chat {
+  width: 100%;
+  padding: 60px 20px; /* Aumentado padding superior/inferior para respirar */
+  display: flex;
+  justify-content: center;
+  background-color: #f7f9fc; /* Fundo sutil para destacar o container branco */
+}
+
+.ia-chat__container {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Quadro Único Integro (Título + Mensagens + Input) */
+.ia-chat__box {
+  width: 100%;
+  height: 600px; /* Ampliado para mais espaço de conversa */
+  border: 1px solid rgba(0, 69, 124, 0.2); /* Borda mais sutil */
+  border-radius: 24px; /* Cantos mais arredondados e suaves */
+  background-color: #ffffff;
+
+  /* Sombra padrão mais suave e ampla para leveza */
+  box-shadow: 0 10px 40px rgba(0, 69, 124, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Transition suave para o brilho e borda */
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+}
+
+/* --- Efeito de Brilho (Glow) no Focus do Container --- */
+.ia-chat__box:focus-within {
+  border-color: #8cd4eb; /* Cor da borda mais clara no focus */
+
+  /* Brilho azul intenso e suave */
+  box-shadow:
+    0 0 20px rgba(140, 212, 235, 0.4),
+    0 10px 50px rgba(0, 69, 124, 0.1);
+}
+
+/* Novo estilo para o Título DENTRO do quadro - CORRIGIDO PARA CENTRALIZAR */
+.ia-chat__title {
+  color: #00457c;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  padding: 30px 24px 10px 24px; /* Padding ajustado */
+  text-align: center; /* CENTRALIZADO NO CONTAINER */
+  width: 100%;
+}
+
+/* Área Interna de Mensagens (com background e transition) */
+.ia-chat__content {
+  flex: 1;
+  padding: 30px 40px; /* Mais padding lateral nas mensagens */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  /* --- CAMINHO CORRIGIDO DA SUA IMAGEM --- */
+  /* background-image: url("../images/iachat/iaChat__background_suszinho.png.jfif"); */
+  /* opacity: 40%; */
+  /* --------------------------------------- */
+
+  background-position: center;
+  background-size: contain; /* 'contain' para não cortar o SUSzinho */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Overlay mais opaco para leitura */
+
+  /* Transition do background sumindo */
+  transition:
+    background 0.8s ease,
+    background-color 0.8s ease;
+}
+
+/* Modificador: Quando há histórico, o background some sutilmente */
+.ia-chat__content--history {
+  background-image: none !important; /* Garante que a imagem suma */
+  background-color: #ffffff; /* Fundo branco limpo */
+}
+
+/* Boas-Vindas e Sugestões */
+.ia-chat__welcome {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ia-chat__welcome-text {
+  color: #1a6296;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+}
+
+.ia-chat__suggestions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ia-chat__suggestion-btn {
+  background-color: rgba(240, 247, 250, 0.7);
+  border: 1px solid #8cd4eb;
+  color: #00457c;
+  padding: 12px 22px;
+  border-radius: 25px; /* Botões mais arredondados */
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.ia-chat__suggestion-btn:hover {
+  background-color: #035394;
+  color: #ffffff;
+  border-color: #00457c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 69, 124, 0.15);
+}
+
+/* Balões de Mensagem */
+.ia-chat__history {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Mais espaço entre balões */
+  width: 100%;
+}
+
+.ia-chat__message {
+  max-width: 70%;
+  padding: 14px 20px;
+  border-radius: 18px;
+  word-break: break-word;
+  line-height: 1.6;
+  font-size: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.ia-chat__message--user {
+  align-self: flex-end;
+  background-color: #00457c;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.ia-chat__message--ai {
+  align-self: flex-start;
+  background-color: #eef6fc;
+  color: #00457c;
+  border: 1px solid rgba(140, 212, 235, 0.5);
+  border-bottom-left-radius: 4px;
+}
+
+/* Form Integrado ao Rodapé do Quadro */
+.ia-chat__form {
+  display: flex;
+  gap: 16px;
+  padding: 20px 30px;
+  background-color: #f7fafc;
+  border-top: 1px solid #e1e9f0;
+}
+
+.ia-chat__input {
+  flex: 1;
+  height: 54px; /* Ligeiramente mais alto */
+  border: 1px solid #c2d5e3;
+  border-radius: 12px;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: #ffffff;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.ia-chat__input:hover {
+  border-color: #8cd4eb;
+}
+
+.ia-chat__input:focus {
+  border-color: #00457c;
+  box-shadow: 0 0 0 3px rgba(0, 69, 124, 0.1);
+}
+
+.ia-chat__submit-btn {
+  height: 54px;
+  padding: 0 32px;
+  background-color: #00457c;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ia-chat__submit-btn:hover {
+  background-color: #00335e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 69, 124, 0.2);
+}
+
+.ia-chat__submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .ia-chat__box {
+    height: 500px;
+  }
+
+  .ia-chat__content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ia-chat__title {
+    font-size: 26px;
+    padding: 20px 16px 5px 16px;
+  }
+
+  .ia-chat__welcome-text {
+    font-size: 16px;
+  }
+
+  .ia-chat__form {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .ia-chat__input {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .ia-chat__submit-btn {
+    height: 48px;
+    padding: 0 20px;
+    font-size: 15px;
+  }
+}

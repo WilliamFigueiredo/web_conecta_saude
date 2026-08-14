@@ -1,0 +1,203 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/login/login__background.png);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+/* Cartão branco do formulário */
+/* [NOVO] .form--register adicionado aqui para reaproveitar o mesmo cartão do form--login na página de Registro */
+.form--login,
+.form--register {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo principal (Conecta Saúde BR) */
+.form__logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 35px;
+}
+
+/* Container de cada campo de entrada */
+.form__field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+/* Ícones internos dos inputs (CPF e Senha) */
+.form__field-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.4;
+}
+
+/* Campos de entrada (Inputs) */
+.form__input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 1px solid #cccccc;
+  border-radius: 50px;
+  font-size: 15px;
+  color: #333333;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form__input::placeholder {
+  color: #999999;
+}
+
+.form__input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Opções (Lembrar de mim e Esqueci minha senha) */
+.form__options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+
+/* Checkbox "Lembrar de mim" */
+.form__remember {
+  display: flex;
+  align-items: center;
+  color: #555555;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form__checkbox {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* Link "Esqueci minha senha" */
+.form__forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form__forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Botão "Entrar" */
+.form__button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form__button:hover {
+  background-color: #0056b3;
+}
+
+/* Divisor visual ou alternativo */
+.form__divider {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 0.1em;
+  margin: 24px 0;
+}
+
+.form__divider span {
+  background: #ffffff;
+  padding: 0 10px;
+  color: #999999;
+  font-size: 13px;
+}
+
+/* Link/Botão do Gov.br */
+.form__gov-login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: #e0f0ff;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.form__gov-login:hover {
+  background-color: #d0e8ff;
+}
+
+/* Logo do Gov.br interna */
+.form__gov-logo {
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Texto do Gov.br */
+.form__gov-text {
+  color: #0056b3;
+  font-weight: bold;
+  margin: 0;
+  font-size: 15px;
+}
+
+/* [NOVO] Bloco de redirecionamento entre Login e Registro (ex: "Já tem conta? Entrar" / "Não tem conta? Criar conta"), usado nas duas páginas */
+.form__auth-redirect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #555555;
+}
+
+/* [NOVO] Link dentro do .form__auth-redirect */
+.form__auth-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form__auth-link:hover {
+  text-decoration: underline;
+}

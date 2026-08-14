@@ -1,0 +1,24 @@
+@import "./vendor/fonts.css";
+@import "./blocks/navbar.css";
+@import "./blocks/header.css";
+@import "./blocks/homeContent.css";
+@import "./blocks/footer.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Gotham ", sans-serif;
+  letter-spacing: 0.2px;
+}
+
+:root {
+  --color-primary: #11426b;
+  --color-secondary: #0e75b9;
+  --color-tertiary: #ffffff;
+  --color-quaternary: #000000;
+}
+:root {
+  --font-primary: "Gotham Rounded", sans-serif;
+}

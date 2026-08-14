@@ -1,0 +1,133 @@
+/* Bloco principal: HomeContent */
+.home-content {
+  width: 100%;
+  padding: 90px 55px; /* Espaço de cima e de baixo (modificar por aqui) */
+  box-sizing: border-box;
+}
+
+/* Container flexível: alinha os cards */
+.home-content__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.home-content__card {
+  flex: 1; /* Permite que os cards cresçam igualmente */
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(222, 222, 222);
+  border-radius: 30px;
+
+  transition: 0.3s;
+}
+
+.home-content__card:hover {
+  background-color: rgb(204, 237, 250);
+  transform: scale(1.05);
+}
+
+/*  Modificador do card quando o usuário não está logado.
+   */
+.home-content__card--locked {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-content__card--locked:hover {
+  background-color: rgb(222, 222, 222);
+}
+
+/* verlay de bloqueio: */
+.home-content__card-lock-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+/*  quando o mouse passa no card bloqueado,
+   */
+.home-content__card--locked:hover .home-content__card-lock-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*  Ícone do cadeado dentro do overlay ) */
+.home-content__lock-icon {
+  width: 26px;
+  height: 26px;
+  filter: brightness(0) invert(1); /* ícone original é escuro; aqui vira branco pra contrastar com o fundo preto */
+}
+
+/* Texto da mensagem dentro do overlay */
+.home-content__lock-text {
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.home-content__icon {
+  width: 86px;
+  height: 56px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* É o mesmo icon, mas tem que passar por ID porque não deu pra padronizar */
+#icon__prontuario {
+  background-image: url("../images/content/image__content_prontuario.png");
+}
+#icon__nutrition {
+  background-image: url("../images/content/image__content_nutrição.png");
+}
+#icon__exercices {
+  background-image: url("../images/content/image__content_exercicios.png");
+}
+#icon__suszinho {
+  background-image: url("../images/content/image__content_suszinho.png");
+}
+
+/* Título do card (Elemento) */
+.home-content__card-title {
+  color: #00457c;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Texto descritivo do card (Elemento) */
+.home-content__card-text {
+  color: #1a6296;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}

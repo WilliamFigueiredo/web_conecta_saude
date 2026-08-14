@@ -1,0 +1,135 @@
+.footer {
+  /* margin-top: auto; */
+  justify-content: center;
+}
+
+.footer__container {
+  width: 100%;
+  background-color: var(--color-secondary);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 20vh;
+  padding: 50px 40px;
+  /* border: solid green; */
+
+  color: var(--color-tertiary);
+  border-radius: 0 0 80px 80px;
+}
+
+/* Parte 1 */
+.footer__about {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid red; */
+}
+
+.footer__about-text {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.9;
+}
+
+/* Parte 2 */
+.footer__logos {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* border: solid red; */
+}
+
+.footer__logo--gov {
+  width: 40%;
+  height: auto;
+}
+
+.footer__logo--sus {
+  width: 40%;
+  height: auto;
+}
+
+/* Parte 3 (Diminuído espaçamento interno entre os links) */
+.footer__links {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__links-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px; /* Ajuste fino de espaçamento */
+}
+
+.footer__link {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  line-height: 2 ; /* Reduzido de 3.5 para aproximação visual */
+  color: var(--color-tertiary);
+  text-decoration: none;
+}
+
+/* Parte 4 (Reorganização de hierarquia e espaçamento dos contatos) */
+.footer__contacts {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__contacts-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; /* Espaço entre grupos de atendimento/SAC/Emails */
+}
+
+.footer__contact-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__contact-group--emails {
+  margin-top: 4px;
+  gap: 4px;
+}
+
+.footer__contact-title {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.footer__contact-container {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Espaço para o ícone */
+}
+
+.footer__contact-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  /* Espaço reservado para carregar os ícones no src */
+}
+
+.footer__contact-text {
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.3;
+}
