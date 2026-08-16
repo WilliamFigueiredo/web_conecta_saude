@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../../blocks/HomeContent.css";
+import "../../blocks/homeContent.css";
 
 import Prontuario from "../../pages/Prontuario";
 import Nutrition from "../../pages/Nutrition";
