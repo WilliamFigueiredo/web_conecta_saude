@@ -49,3 +49,18 @@
   top: 233px;
   right: 540px;
 }
+
+@media (max-width: 900px) {
+  .header__container {
+    width: 85%;
+    height: 32vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .header__container {
+    width: 92%;
+    height: 22vh;
+    border-radius: 30px;
+  }
+}

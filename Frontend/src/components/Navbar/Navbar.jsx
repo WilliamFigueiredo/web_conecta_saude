@@ -7,7 +7,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 function Navbar() {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   return (
     <div className="nav">
@@ -23,16 +23,14 @@ function Navbar() {
             Início
           </Link>
 
-          <Link to="#" className="nav__link">
+          <Link to="/sobre" className="nav__link">
             Sobre
           </Link>
 
-          <Link to="#" className="nav__link">
-            Contato
-          </Link>
-
           {user ? (
-            <span className="nav__login">{user.nome}</span>
+            <button className="nav__login" onClick={() => setUser(null)}>
+              Sair
+            </button>
           ) : (
             <Link to="/login" className="nav__login">
               <img className="nav__link-icon" src={nav__icon} alt="" />

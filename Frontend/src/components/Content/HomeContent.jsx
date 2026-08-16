@@ -30,7 +30,6 @@ function HomeContent() {
               informações médicas.
             </p>
 
-            {/* Overlay: cadeado + mensagem, escondido por padrão, aparece no hover (CSS ainda vem) */}
             <div className="home-content__card-lock-overlay">
               <img
                 className="home-content__lock-icon"
@@ -55,7 +54,6 @@ function HomeContent() {
               de saúde.
             </p>
 
-            {/* Overlay: cadeado + mensagem, escondido por padrão, aparece no hover (CSS ainda vem) */}
             <div className="home-content__card-lock-overlay">
               <img
                 className="home-content__lock-icon"
@@ -80,7 +78,6 @@ function HomeContent() {
               profissional de saúde do SUS.
             </p>
 
-            {/* Overlay: cadeado + mensagem, escondido por padrão, aparece no hover (CSS ainda vem) */}
             <div className="home-content__card-lock-overlay">
               <img
                 className="home-content__lock-icon"
@@ -105,7 +102,6 @@ function HomeContent() {
               Fale com a nossa Inteligência Artificial para sanar suas dúvidas
             </p>
 
-            {/* Overlay: cadeado + mensagem, escondido por padrão, aparece no hover (CSS ainda vem) */}
             <div className="home-content__card-lock-overlay">
               <img
                 className="home-content__lock-icon"

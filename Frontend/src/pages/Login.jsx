@@ -1,10 +1,10 @@
-// import "./forms.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import ".././blocks/login.css";
+import AuthContext from "../context/AuthContext";
 
-import LogoConectaSaude from "../images/navbar/nav__logo.png"; // image_df0565.png
+import LogoConectaSaude from "../images/navbar/nav__logo.png";
 import IconUser from "../images/login/login__icon_user.png";
 import IconLock from "../images/login/login__icon_locked.png";
 import LogoGovBr from "../images/login/login__gov_logo.png";
@@ -12,22 +12,29 @@ import LogoGovBr from "../images/login/login__gov_logo.png";
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  async function handleLogin() {
-    try {
-      const response = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, senha }),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        alert(data.erro);
-        return;
-      }
-      alert(data.mensagem);
-    } catch (erro) {
-      console.log("Erro ao conectar com o servidor", erro);
+  const [erro, setErro] = useState("");
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function handleLogin() {
+    if (!email || !senha) {
+      setErro("Preencha email e senha");
+      return;
     }
+
+    if (!email.includes("@")) {
+      setErro("Email inválido");
+      return;
+    }
+
+    if (senha.length < 6) {
+      setErro("Senha inválida");
+      return;
+    }
+
+    setErro("");
+    setUser({ email });
+    navigate("/home");
   }
 
   return (
@@ -68,11 +75,14 @@ function Login() {
             className="form__input"
             type="password"
             placeholder="Senha"
+            minLength="6"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             required
           />
         </div>
+
+        {erro && <p className="form__error">{erro}</p>}
 
         {/* Ajuste na ordem e estrutura para alinhar com a imagem */}
         <div className="form__options">
@@ -97,7 +107,6 @@ function Login() {
           <p className="form__gov-text">Entrar com o Gov.br</p>
         </Link>
 
-        {/* Redirecionamento para o cadastro */}
         <div className="form__auth-redirect">
           <span>Ainda não tem conta?</span>
           <Link className="form__auth-link" to="/register">

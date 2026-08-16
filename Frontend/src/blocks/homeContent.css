@@ -25,6 +25,8 @@
   padding: 20px;
   background-color: rgb(222, 222, 222);
   border-radius: 30px;
+  position: relative;
+  overflow: hidden;
 
   transition: 0.3s;
 }
@@ -34,18 +36,10 @@
   transform: scale(1.05);
 }
 
-/*  Modificador do card quando o usuário não está logado.
-   */
-.home-content__card--locked {
-  position: relative;
-  overflow: hidden;
-}
-
 .home-content__card--locked:hover {
   background-color: rgb(222, 222, 222);
 }
 
-/* verlay de bloqueio: */
 .home-content__card-lock-overlay {
   position: absolute;
   bottom: 0;
@@ -68,21 +62,17 @@
     transform 0.3s;
 }
 
-/*  quando o mouse passa no card bloqueado,
-   */
 .home-content__card--locked:hover .home-content__card-lock-overlay {
   opacity: 1;
   transform: translateY(0);
 }
 
-/*  Ícone do cadeado dentro do overlay ) */
 .home-content__lock-icon {
   width: 26px;
   height: 26px;
-  filter: brightness(0) invert(1); /* ícone original é escuro; aqui vira branco pra contrastar com o fundo preto */
+  filter: brightness(0) invert(1);
 }
 
-/* Texto da mensagem dentro do overlay */
 .home-content__lock-text {
   color: #ffffff;
   font-size: 13px;
@@ -130,4 +120,37 @@
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 900px) {
+  .home-content {
+    padding: 60px 30px;
+  }
+
+  .home-content__container {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .home-content__card {
+    flex: 1 1 40%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-content {
+    padding: 40px 15px;
+  }
+
+  .home-content__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .home-content__card {
+    max-width: 100%;
+    width: 100%;
+  }
 }

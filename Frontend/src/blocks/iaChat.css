@@ -6,10 +6,10 @@
 /* Bloco Principal */
 .ia-chat {
   width: 100%;
-  padding: 60px 20px; /* Aumentado padding superior/inferior para respirar */
+  padding: 60px 20px; 
   display: flex;
   justify-content: center;
-  background-color: #f7f9fc; /* Fundo sutil para destacar o container branco */
+  background-color: #f7f9fc; 
 }
 
 .ia-chat__container {
@@ -20,22 +20,22 @@
   align-items: center;
 }
 
-/* Quadro Único Integro (Título + Mensagens + Input) */
+
 .ia-chat__box {
   width: 100%;
-  height: 600px; /* Ampliado para mais espaço de conversa */
-  border: 1px solid rgba(0, 69, 124, 0.2); /* Borda mais sutil */
-  border-radius: 24px; /* Cantos mais arredondados e suaves */
+  height: 600px; 
+  border: 1px solid rgba(0, 69, 124, 0.2); 
+  border-radius: 24px; 
   background-color: #ffffff;
 
-  /* Sombra padrão mais suave e ampla para leveza */
+ 
   box-shadow: 0 10px 40px rgba(0, 69, 124, 0.06);
 
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
-  /* Transition suave para o brilho e borda */
+
   transition:
     border-color 0.4s ease,
     box-shadow 0.4s ease,
@@ -46,7 +46,7 @@
 .ia-chat__box:focus-within {
   border-color: #8cd4eb; /* Cor da borda mais clara no focus */
 
-  /* Brilho azul intenso e suave */
+  /* Brilho azul  */
   box-shadow:
     0 0 20px rgba(140, 212, 235, 0.4),
     0 10px 50px rgba(0, 69, 124, 0.1);
@@ -58,23 +58,18 @@
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  padding: 30px 24px 10px 24px; /* Padding ajustado */
-  text-align: center; /* CENTRALIZADO NO CONTAINER */
+  padding: 30px 24px 10px 24px; 
+  text-align: center; 
   width: 100%;
 }
 
-/* Área Interna de Mensagens (com background e transition) */
+
 .ia-chat__content {
   flex: 1;
-  padding: 30px 40px; /* Mais padding lateral nas mensagens */
+  padding: 30px 40px; 
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-
-  /* --- CAMINHO CORRIGIDO DA SUA IMAGEM --- */
-  /* background-image: url("../images/iachat/iaChat__background_suszinho.png.jfif"); */
-  /* opacity: 40%; */
-  /* --------------------------------------- */
 
   background-position: center;
   background-size: contain; /* 'contain' para não cortar o SUSzinho */
@@ -83,21 +78,21 @@
     255,
     255,
     0.95
-  ); /* Overlay mais opaco para leitura */
+  ); 
 
-  /* Transition do background sumindo */
+  
   transition:
     background 0.8s ease,
     background-color 0.8s ease;
 }
 
-/* Modificador: Quando há histórico, o background some sutilmente */
+
 .ia-chat__content--history {
-  background-image: none !important; /* Garante que a imagem suma */
-  background-color: #ffffff; /* Fundo branco limpo */
+  background-image: none !important; 
+  background-color: #ffffff; /* Fundo branco  */
 }
 
-/* Boas-Vindas e Sugestões */
+
 .ia-chat__welcome {
   margin: auto;
   text-align: center;
@@ -146,7 +141,7 @@
 .ia-chat__history {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Mais espaço entre balões */
+  gap: 16px; 
   width: 100%;
 }
 
@@ -175,7 +170,7 @@
   border-bottom-left-radius: 4px;
 }
 
-/* Form Integrado ao Rodapé do Quadro */
+
 .ia-chat__form {
   display: flex;
   gap: 16px;
@@ -186,7 +181,7 @@
 
 .ia-chat__input {
   flex: 1;
-  height: 54px; /* Ligeiramente mais alto */
+  height: 54px; 
   border: 1px solid #c2d5e3;
   border-radius: 12px;
   padding: 0 20px;

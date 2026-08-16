@@ -1,66 +1,98 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import ".././blocks/table.css";
+import Preloader from "../components/Preloader/Preloader";
+import { getCachedProfessionals } from "../utils/RandomUserApi";
 
-// Array inicial para visualização local (conectar ao banco)
-
-const nutritionData = [
+const nutritionTemplate = [
   {
     id: 1,
     documento: "Plano alimentar inicial",
     data: "22/07/2026",
-    profissional: "Dr. Jon Snow",
     arquivoUrl: "#",
   },
   {
     id: 2,
     documento: "Avaliação Nutricional",
     data: "22/06/2026",
-    profissional: "Dr. Robb Stark",
     arquivoUrl: "#",
   },
   {
     id: 3,
     documento: "Evolução Nutricional",
     data: "22/05/2026",
-    profissional: "Dr. Ned Stark",
     arquivoUrl: "#",
   },
   {
     id: 4,
     documento: "Orientações Nutricionais",
     data: "22/04/2026",
-    profissional: "Dra. Catelyn Tully",
     arquivoUrl: "#",
   },
   {
     id: 5,
     documento: "Plano alimentar inicial",
     data: "22/03/2026",
-    profissional: "Dr. Brandow Stark",
     arquivoUrl: "#",
   },
   {
     id: 6,
     documento: "Orientações Nutricionais",
     data: "22/02/2026",
-    profissional: "Dra. Arya Stark",
     arquivoUrl: "#",
   },
   {
     id: 7,
     documento: "Avaliação Nutricional",
     data: "22/01/2026",
-    profissional: "Dra. Sansa Stark",
     arquivoUrl: "#",
   },
 ];
 
 function Nutrition() {
-  const [documentos, setDocumentos] = useState(nutritionData);
+  const [documentos, setDocumentos] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState("");
+
+  useEffect(() => {
+    getCachedProfessionals(
+      "nutrition_profissionais",
+      "female",
+      nutritionTemplate.length,
+    )
+      .then((nomes) => {
+        const dadosComProfissional = nutritionTemplate.map((doc, index) => ({
+          ...doc,
+          profissional: `Dra. ${nomes[index % nomes.length]}`,
+        }));
+        setDocumentos(dadosComProfissional);
+      })
+      .catch(() =>
+        setErro(
+          "Desculpe, algo deu errado durante a solicitação. Pode haver um problema de conexão ou o servidor pode estar inativo. Por favor, tente novamente mais tarde.",
+        ),
+      )
+      .finally(() => setCarregando(false));
+  }, []);
 
   const handleDownloadResumo = () => {
     alert("Iniciando download do resumo Clínico em PDF...");
   };
+
+  if (carregando) {
+    return (
+      <div className="table">
+        <Preloader />
+      </div>
+    );
+  }
+
+  if (erro) {
+    return (
+      <div className="table">
+        <p className="table__error">{erro}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="table">

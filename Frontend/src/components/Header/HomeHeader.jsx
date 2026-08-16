@@ -6,16 +6,24 @@ import AuthContext from "../../context/AuthContext";
 
 function HomeHeader() {
   const { user } = useContext(AuthContext);
+
   return (
     <header className="header">
-      <Link to="/login" className="header__container">
-        <div
-          className={user ? "header__banner-dashboard" : "header__banner-home"}
-        ></div>{" "}
-        <div className="header__content">
-          <div className="header__link" to="#"></div>
+      {user ? (
+        <div className="header__container">
+          <div className="header__banner-dashboard"></div>
+          <div className="header__content">
+            <div className="header__link"></div>
+          </div>
         </div>
-      </Link>
+      ) : (
+        <Link to="/login" className="header__container">
+          <div className="header__banner-home"></div>
+          <div className="header__content">
+            <div className="header__link"></div>
+          </div>
+        </Link>
+      )}
     </header>
   );
 }

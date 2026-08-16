@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import ".././blocks/login.css";
 import LogoConectaSaude from "../images/navbar/nav__logo.png";
@@ -10,22 +10,33 @@ function Register() {
   const [cartaoSus, setCartaoSus] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-}
+  const [erro, setErro] = useState("");
+  const navigate = useNavigate();
 
-async function handleRegister() {
-  try {
-    const response = await fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, senha, cartaoSus }),
-    });
-    const data = await response.json;
-    if (!response.ok) {
-      alert(data.erro)
+  function handleRegister() {
+    if (!cartaoSus || !email || !senha) {
+      setErro("Preencha todos os campos");
       return;
     }
-  } catch (erro) {
-    console.log("Erro ao conectar com o servidor");
+
+    if (cartaoSus.length < 6 || isNaN(cartaoSus)) {
+      setErro("Cartão inválido");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setErro("Email inválido");
+      return;
+    }
+
+    if (senha.length < 6) {
+      setErro("Senha inválida");
+      return;
+    }
+
+    setErro("");
+    alert("Cadastro realizado com sucesso");
+    navigate("/login");
   }
 
   return (
@@ -37,7 +48,6 @@ async function handleRegister() {
           alt="Logo Conecta Saúde BR"
         />
 
-        {/* Input de Cartão do SUS */}
         <div className="form__field">
           <img
             className="form__field-icon"
@@ -55,7 +65,6 @@ async function handleRegister() {
           />
         </div>
 
-        {/* Input de Email */}
         <div className="form__field">
           <img
             className="form__field-icon"
@@ -72,7 +81,6 @@ async function handleRegister() {
           />
         </div>
 
-        {/* Input de Senha */}
         <div className="form__field">
           <img
             className="form__field-icon"
@@ -83,17 +91,19 @@ async function handleRegister() {
             className="form__input"
             type="password"
             placeholder="Senha"
+            minLength="6"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             required
           />
         </div>
 
+        {erro && <p className="form__error">{erro}</p>}
+
         <button className="form__button" onClick={handleRegister}>
           Cadastrar
         </button>
 
-        {/* Redirecionamento para o login, equivalente ao form__divider + form__gov-login do Login.jsx */}
         <div className="form__auth-redirect">
           <span>Já tem uma conta?</span>
           <Link className="form__auth-link" to="/login">
